@@ -1,0 +1,57 @@
+<div
+    [ngClass]="{
+        'autocomplete': true,
+        'empty-search': filteredItems.length === 0 || term.length === 0,
+        'search-button-visible': showSearchButton,
+        'icon-visible': showIcon
+    }"
+    #autocompleteWrapper
+    role="combobox"
+    aria-haspopup="true"
+    [attr.aria-expanded]="filteredItems.length !== 0">
+    <label class="input-label" [for]="inputId">Input your search term</label>
+    <input
+        autocomplete="off"
+        [placeholder]="placeholder"
+        (keydown)="onKeyDown($event)"
+        class="input"
+        [id]="inputId"
+        role="textbox"
+        type="text"
+        [(ngModel)]="term"
+        [attr.aria-activedescendant]="filteredItems[activeItemIndex] || ''"
+        (ngModelChange)="onTermChanged($event)">
+    <button
+        type="button"
+        aria-label="Search"
+        (click)="onValueSelected()"
+        class="search-button"
+        *ngIf="showSearchButton">
+        <span class="search-button-text"><strong>Search</strong></span>
+        <icon
+            class="search-button-icon"
+            [name]="'search'"
+            [color]="'current-color'">
+        </icon>
+    </button>
+    <icon
+        *ngIf="showIcon"
+        class="input-icon"
+        [name]="'pin-filled'"
+        [color]="'accent'">
+    </icon>
+    <ul
+        class="list"
+        #dropdown
+        role="listbox">
+        <li
+            #dropdownItem
+            class="list-item"
+            role="option"
+            *ngFor="let item of filteredItems; let i = index"
+            (click)="onValueSelected(item)"
+            [ngClass]="{'active': i === activeItemIndex}">
+            {{ item }}
+        </li>
+    </ul>
+</div>

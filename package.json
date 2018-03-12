@@ -1,0 +1,25 @@
+{
+  "name": "up-autocomplete",
+  "version": "0.0.1",
+  "description": "Simple Autocomplete Component",
+  "main": "index.ts",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UpsideRealty/up-autocomplete.git"
+  },
+  "keywords": [
+    "autocomplete",
+    "angular"
+  ],
+  "author": "UpsideRealty",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/UpsideRealty/up-autocomplete/issues"
+  },
+  "homepage": "https://github.com/UpsideRealty/up-autocomplete#readme"
+}

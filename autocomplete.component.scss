@@ -1,0 +1,134 @@
+* {
+    box-sizing: border-box;
+}
+
+.autocomplete {
+    box-shadow: 2px 0 16px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex: 0 0 auto;
+    justify-content: space-between;
+    position: relative;
+    width: 100%;
+}
+
+.input {
+    background: #fff;
+    border: none;
+    border-bottom: 1px solid #c8cace;
+    border-radius: 3px 3px 0 0;
+    font-size: 1rem;
+    height: 60px;
+    padding: 12px 24px;
+    padding-right: 8px;
+    width: 100%;
+}
+
+.input,
+.search-button {
+    position: relative;
+    z-index: 2;
+}
+
+.input-label {
+    clip: rect(1px, 1px, 1px, 1px);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    width: 1px;
+}
+
+.input-icon {
+    left: 10px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 3;
+}
+
+.list {
+    background: #fff;
+    border-radius: 0 0 3px 3px;
+    box-shadow: 2px 0 16px rgba(0, 0, 0, 0.25);
+    left: 0;
+    list-style: none;
+    max-height: 196px;
+    overflow-y: auto;
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    z-index: 1;
+}
+
+.list-item {
+    background: #fff;
+    border: 0;
+    cursor: pointer;
+    padding: 14px;
+}
+
+.search-button {
+    background: #ff5244;
+    border: 0;
+    border-radius: 0 3px 0 0;
+    color: #fff;
+    display: block;
+    margin: 0;
+    min-width: 60px;
+    text-transform: uppercase;
+
+    @media screen and (min-width: 600px) {
+        min-width: 128px;
+    }
+}
+
+.search-button-text {
+    display: none;
+    padding-right: 4px;
+    font-size: 1rem;
+
+    @media screen and (min-width: 600px) {
+        display: inline;
+    }
+}
+
+.search-button-icon {
+    color: #fff;
+    position: relative;
+
+    @media screen and (min-width: 600px) {
+        right: -4px;
+    }
+}
+
+.list-item:hover,
+.list-item.active {
+    background: #f0f1f2;
+}
+
+.autocomplete.empty-search {
+    .list {
+        display: none;
+    }
+
+    .input {
+        border-color: #fff;
+        border-radius: 3px;
+    }
+
+    .search-button {
+        border-radius: 0 3px 3px 0;
+    }
+}
+
+.autocomplete.search-button-visible {
+    .input {
+        border-bottom-right-radius: 0;
+        border-top-right-radius: 0;
+    }
+}
+
+.autocomplete.icon-visible {
+    .input {
+        padding-left: 40px;
+    }
+}
